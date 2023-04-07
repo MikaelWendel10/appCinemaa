@@ -1,25 +1,27 @@
 @extends('padrao')
 
-@section('content') 
+@section('content')
 
 <form>
             <div class="mb-3 form-check">
-                <label for="numeroInput" class="form-label">Número da sala:</label>
-                <input type="number" class="form-control" id="numeroInput" >
+                <label for="nrSalaInput" class="form-label">Número da Sala:</label>
+                <input type="text" class="form-control" id="nrSalaInput" >
             </div>
             <div class="mb-3 form-check">
-                <label for="qtdInput" class="form-label">Quantidade de Poltronas</label>
-                <input type="number" class="form-control" id="qtdInput">
+                <label for="qtdePoltronasInput" class="form-label">Quantidade de Poltronas:</label>
+                <input type="text" class="form-control" id="qtdePoltronasInput">
             </div>
             <div class="mb-3 form-check">
-                <label for="filmeInput" class="form-label">Filme:</label>
-                <input type="text" class="form-control" id="filmeInput" >
+                <label for="filmeSalaInput" class="form-label">Filme que está passando nesta sala:</label>
+                <input type="text" class="form-control" id="filmeSalaInput" >
             </div>
             <div class="mb-3 form-check">
-                <label for="ssInput" class="form-label">Sessões:</label>
-                <input type="text" class="form-control" id="ssInput">
-            </div>
+                <label for="sessaoInput" class="form-label">Horário da Sessão:</label>
+                <input type="text" class="form-control" id="sessaoInput" >
+              </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
 
-@endsection
+
+
+@endsection 
