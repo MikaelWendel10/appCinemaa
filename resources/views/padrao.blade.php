@@ -25,26 +25,23 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Filme</a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{url('/cadastro-filme')}}">Cadastrar</a></li>
-                  <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                  <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                  <li><a class="dropdown-item" href="{{'/cadastro-filme'}}">Cadastrar</a></li>
+                  <li><a class="dropdown-item" href="{{'/gerenciar-filme'}}">Gerenciar</a></li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Funcionário</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{url('/cadastro-funcionario')}}">Cadastrar</a></li>
-                    <li><a class="dropdown-item" href="#">Pesquisar</a></li>
-                    <li><a class="dropdown-item" href="#">Gerenciar</a></li>
+                    <li><a class="dropdown-item" href="{{'/cadastro-funcionario'}}">Cadastrar</a></li>
+                    <li><a class="dropdown-item" href="{{'/gerenciar-funcionario'}}">Gerenciar</a></li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Sala/Poltrona</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{url('/cadastro-sala')}}">Cadastrar</a></li>
-                    <li><a class="dropdown-item" href="#">Pesquisar</a></li>
+                    <li><a class="dropdown-item" href="#">Cadastrar</a></li>
                     <li><a class="dropdown-item" href="#">Gerenciar</a></li>
                 </ul>
               </li>

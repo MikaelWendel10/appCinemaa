@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\cadastroFilme;
-use App\Http\Controllers\cadastroFuncionario;
-use App\Http\Controllers\cadastroSala;
+use App\Http\Controllers\filmeController;
+use App\Http\Controllers\funcionarioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,17 +17,25 @@ use App\Http\Controllers\cadastroSala;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('/cadastro-filme',[filmeController::class,'buscaCadastroFilme'])->name('buscar-cadastro-filme');
+Route::post('/cadastro-filme',[filmeController::class,'cadastrarFilme'])->name('cadastro-filme');
+Route::get('/gerenciar-filme',[filmeController::class,'MostrarGerenciadorFilme'])->name('gerenciar-filme');
+
+Route::delete('/gerenciar-filme/{registrosFilme}',[filmeController::class,'ApagarFilme'])->name('apagar-filme');
+
+Route::get('/alterar-filme/{registroFilme}',[filmeController::class,'MostrarRegistrosFilme'])->name('mostrar-filme');
+Route::put('/gerenciar-filme/{registroFilme}',[filmeController::class,'AlterarBancoFilme'])->name('alterar-banco-filme');
 
 
-Route::get('/cadastro-filme',[cadastroFilme::class,'buscaCadastroFilme'])->name('busca-cadastro-filme');
-
-Route::post('/cadastro-filme',[cadastroFilme::class,'cadastrarFilme'])->name('cadastro-filme');
-
-Route::get('/cadastro-funcionario',[cadastroFuncionario::class,'buscaCadastroFuncionario'])->name('busca-cadastro-funcionario');
-
-Route::get('/cadastro-sala',[cadastroSala::class,'buscaCadastroSala']);
-
-Route::post('/cadastro-funcionario',[cadastroFuncionario::class,'cadastrarFuncionario'])->name('cadastro-funcionario');
 
 
+Route::get('/cadastro-funcionario',[funcionarioController::class,'buscarCadastroFuncionario'])->name('buscar-cadastro-funcionario');
+Route::post('/cadastro-funcionario',[funcionarioController::class,'cadastrarFuncionario'])->name('cadastro-funcionario');
+Route::get('/gerenciar-funcionario',[funcionarioController::class,'MostrarGerenciadorFuncionario'])->name('gerenciar-funcionario');
+
+Route::delete('/gerenciar-funcionario/{registrosFuncionarios}',[funcionarioController::class,'ApagarFuncionario'])->name('apagar-funcionario');
+
+Route::get('/alterar-funcionario/{registroFuncionario}',[funcionarioController::class,'MostrarRegistrosFuncionarios'])->name('mostrar-funcionario');
+Route::put('/gerenciar-funcionario/{registroFuncionario}',[funcionarioController::class,'AlterarBancoFuncionario'])->name('alterar-banco-funcionario');

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filmes', function (Blueprint $table) {
+        Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('filme');
-            $table->string('ator');
-            $table->string('sinopse');
-            $table->string('datalanca');
-            $table->string('capa');
+            $table->string('emailfun');
+            $table->string('nomefun');
+            $table->string('senhafun');
+            $table->string('whatsappfun');
+            $table->string('cpffun');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
+        Schema::dropIfExists('funcionarios');
     }
 };
