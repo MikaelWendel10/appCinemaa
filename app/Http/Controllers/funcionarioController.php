@@ -34,8 +34,8 @@ class funcionarioController extends Controller
        // dd($dadosfuncionarios);
        
         $dadosfuncionarios = Funcionario::query();
-        $dadosfuncionarios->when($request->nomefun,function($query,$nomefuncionario ){
-            $query->where('nomefun','like','%'.$nomefuncionario.'%');
+        $dadosfuncionarios->when($request->nomefun,function($query,$nomefun ){
+            $query->where('nomefun','like','%'.$nomefun.'%');
         }); 
 
         $dadosfuncionarios = $dadosfuncionarios->get();
@@ -69,7 +69,7 @@ class funcionarioController extends Controller
         'cpffun'=> 'string | required'
     ]); 
 
-    $registrosFuncionarios-fill($dadosfuncionarios);
+    $registrosFuncionarios->fill($dadosfuncionarios);
     $registrosFuncionarios->save();
 
     return redirect ::route('gerenciar-funcionario');

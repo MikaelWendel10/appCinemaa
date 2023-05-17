@@ -32,9 +32,6 @@ class filmeController extends Controller
         return Redirect::route('home');
     }
     public function MostrarGerenciadorFilme(Request $request){
-        $dadosFilme = Filme::all();
-       // dd($dadosFilme);
-       
         $dadosFilme = Filme::query();
         $dadosFilme->when($request->nomefilme,function($query,$nomefilme ){
             $query->where('nomefilme','like','%'.$nomefilme.'%');
@@ -55,8 +52,15 @@ class filmeController extends Controller
      }
     
      public function MostrarRegistrosFilme(Filme $registrosFilme){
-        return view('xxx',['registrosFilme'=>$registrosFilme]);
-     }
+        $dadosFilme = Filme::all();
+        dd($dadosFilme);
+
+        $dadosFilme = Filme::query();
+        $dadosFilme->when($request->nomefilme,function($query, $nomefilme){
+        $query->where('nomefilme', 'like', '%'.$nomefilme.'%');
+        }); 
+
+    }
     
      public function AlterarBancoFilme(Filme $registrosFilme, Request $request){
     
@@ -65,13 +69,13 @@ class filmeController extends Controller
             'atoresfilme'=> 'string | required',
             'datalancamentofilme'=> 'string | required',
             'sinopsefilme'=> 'string | required',
-            'capafilme'=> 'string | required'
+            'capafilme'=> 'string | required',
         ]); 
     
-        $registrosFilme-fill($dadosFilme);
+        $registrosFilme->fill($dadosFilme);
         $registrosFilme->save();
     
-        return redirect ::route('gerenciar-filme');
+        return Redirect::route('gerenciar-filme');
     
     }
 }

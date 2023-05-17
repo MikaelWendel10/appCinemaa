@@ -25,8 +25,8 @@ Route::get('/gerenciar-filme',[filmeController::class,'MostrarGerenciadorFilme']
 
 Route::delete('/gerenciar-filme/{registrosFilme}',[filmeController::class,'ApagarFilme'])->name('apagar-filme');
 
-Route::get('/alterar-filme/{registroFilme}',[filmeController::class,'MostrarRegistrosFilme'])->name('mostrar-filme');
-Route::put('/gerenciar-filme/{registroFilme}',[filmeController::class,'AlterarBancoFilme'])->name('alterar-banco-filme');
+Route::get('/alterar-filme/{registrosFilme}',[filmeController::class,'MostrarRegistrosFilme'])->name('mostrar-filme');
+Route::put('/gerenciar-filme/{registrosFilme}',[filmeController::class,'AlterarBancoFilme'])->name('alterar-banco-filme');
 
 
 
@@ -37,5 +37,5 @@ Route::get('/gerenciar-funcionario',[funcionarioController::class,'MostrarGerenc
 
 Route::delete('/gerenciar-funcionario/{registrosFuncionarios}',[funcionarioController::class,'ApagarFuncionario'])->name('apagar-funcionario');
 
-Route::get('/alterar-funcionario/{registroFuncionario}',[funcionarioController::class,'MostrarRegistrosFuncionarios'])->name('mostrar-funcionario');
-Route::put('/gerenciar-funcionario/{registroFuncionario}',[funcionarioController::class,'AlterarBancoFuncionario'])->name('alterar-banco-funcionario');
+Route::get('/alterar-funcionario/{registrosFuncionarios}',[funcionarioController::class,'MostrarRegistrosFuncionario'])->name('mostrar-funcionario');
+Route::put('/gerenciar-funcionario/{registrosFuncionarios}',[funcionarioController::class,'AlterarBancoFuncionario'])->name('alterar-banco-funcionario');

@@ -26,32 +26,26 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($dadosfilme as $dadosfilme)
+    @if(empty($_GET['nomefilme']))
+
+    @else
+    @foreach($dadosfilme as $dadosFilme)
     <tr>
-      <th scope="row">{{$dadosfilme->id}}</th>
-      <td>{{$dadosfilme->nomefilme}}</td>
-      <td>{{$dadosfilme->atoresfilme}}</td>
-      <td><a href="{{route('mostrar-filme',$dadosfilme->id)}}">Alterar</a></td>
+      
+      <th scope="row">{{$dadosFilme->id}}</th>
+      <td>{{$dadosFilme->nomefilme}}</td>
+      <td>{{$dadosFilme->atoresfilme}}</td>
       <td>
-        <form method="post" action="{{route('apagar-filme',$dadosfilme->id)}}">
-          @method('delete')
-          @csrf
-          <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"> Excluir </button>
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Tem certeza de que deseja excluir?</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NÃO</button>
-        <button type="button" class="btn btn-primary">SIM</button>
-      </div>
-    </div>
-  </div>
-</div>
-        </form>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarfilme-{{$dadosFilme->id}}">
+          Alterar
+      </button>
+      @include('modal.filmeAlterar')  
+      </td>
+      <td>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Excluir
+        </button>
+        @include('modal.filmeDeletar')
       </td>  
 
     </tr>
@@ -60,5 +54,5 @@
 </table>
 
 </div>
-
+@endif
 @endsection
